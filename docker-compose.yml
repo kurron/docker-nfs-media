@@ -1,0 +1,10 @@
+version: '2'
+services:
+    nfs:
+        build: .
+        network_mode: "host"
+        ipc: "host"
+        privileged: true
+        stdin_open: true
+        tty: true
+        command: /bin/bash 
