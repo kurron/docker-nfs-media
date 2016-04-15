@@ -14,9 +14,7 @@ ENV OPTIONS nolock
 ENV SERVER 192.168.1.234
 ENV MOUNT /media
 
-ENV EXPORTED /media
-RUN mkdir ${EXPORTED}
-VOLUME ${EXPORTED}
+VOLUME /media
 
 ADD mount.sh /mount.sh
 

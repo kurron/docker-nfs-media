@@ -1,6 +1,6 @@
 #!/bin/bash
 
-CMD="mount -t nfs -o ${OPTIONS} ${SERVER}:${MOUNT} ${EXPORTED}"
+CMD="mount -t nfs -o ${OPTIONS} ${SERVER}:${MOUNT} /media"
 echo $CMD
 $CMD
 
