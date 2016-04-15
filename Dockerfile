@@ -9,6 +9,15 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/* && \
     rm -rf /tmp/*
 
-VOLUME /mnt
 
-ENTRYPOINT ["mount", "-t nfs", "-o nolock,ro", "192.168.1.234:/media", "/mnt"]
+ENV OPTIONS nolock
+ENV SERVER 192.168.1.234
+ENV MOUNT /media
+
+ENV EXPORTED /media
+RUN mkdir ${EXPORTED}
+VOLUME ${EXPORTED}
+
+ADD mount.sh /mount.sh
+
+ENTRYPOINT ["/mount.sh"]
